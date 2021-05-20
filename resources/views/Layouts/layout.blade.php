@@ -9,12 +9,8 @@
 
 @include('Layouts.alert')
 
- <div class="content">
-
-
-
+<div class="content">
 @yield('content')
-
 </div>
    
 </div>

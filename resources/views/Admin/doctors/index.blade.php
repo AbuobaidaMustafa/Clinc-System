@@ -2,12 +2,7 @@
 
 
 @section('content')
-
-<div class="page-wrapper">
-    @include('Layouts.alert')
-
-    <div class="content">
-        <div class="row">
+       <div class="row">
             <div class="col-sm-4 col-3">
                 <h4 class="page-title">Doctors</h4>
             </div>
@@ -276,9 +271,7 @@
                 <a href="chat.html">See all messages</a>
             </div>
         </div>
-    </div>
-</div>
-
+    
 
 @endsection
         

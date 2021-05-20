@@ -3,14 +3,22 @@
         <div id="sidebar-menu" class="sidebar-menu">
             <ul>
                 <li class="menu-title">Main</li>
-                <li class="active">
+                <li class="{{ Request::is('/admin') ? 'active' : '' }}">
                     <a href="index-2.html"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a>
                 </li>
-                <li >
-                    <a href="doctors.html"><i class="fa fa-user-md"></i> <span>Doctors</span></a>
+                <li class="{{ Request::is('/admin/doctors') ? 'active' : '' }}" >
+                    <a href="{{route('admin.doctors.index')}}"><i class="fa fa-user-md"></i> <span>Doctors</span></a>
+                </li>
+                <li class="submenu {{ Request::is('/admin/drugs') ? 'active' : '' }}">
+                    <a href="#"><i class="fa fa-hospital-o"></i> <span> Drugs </span> <span class="menu-arrow"></span></a>
+                    <ul style="display: none;">
+                        <li class="{{ Request::is('/admin/drugs/create') ? 'active' : '' }}"><a href="{{ route('admin.drugs.create')}}">Add New</a></li>
+                        <li class="{{ Request::is('/admin/drugs/index') ? 'active' : '' }}"><a href="{{route('admin.drugs.index')}}">Look Up</a></li>
+                        
+                    </ul>
                 </li>
                 
-                <li>
+                {{-- <li>
                     <a href="patients.html"><i class="fa fa-wheelchair"></i> <span>Patients</span></a>
                 </li>
                 <li>
@@ -157,7 +165,7 @@
                             <a href="javascript:void(0);"><span>Level 1</span></a>
                         </li>
                     </ul>
-                </li>
+                </li> --}}
             </ul>
         </div>
     </div>

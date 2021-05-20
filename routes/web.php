@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use Admin\UserController;
+use Admin\DrugsController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -17,7 +19,9 @@ use Admin\UserController;
 Route::get('/', function () {
     return view('index');
 });
-
-Route::prefix('admin')->middleware(['auth','auth.adminAccess'])->name('admin.')->group(function () {
+// middleware(['auth','auth.adminAccess'])
+Route::prefix('admin')->name('admin.')->group(function () {
     Route::resource('doctors', UserController::class);
+    Route::resource('drugs', DrugsController::class);
+
 });
