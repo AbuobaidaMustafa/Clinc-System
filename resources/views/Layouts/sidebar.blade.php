@@ -12,8 +12,19 @@
                 <li class="submenu {{ Request::is('/admin/drugs') ? 'active' : '' }}">
                     <a href="#"><i class="fa fa-hospital-o"></i> <span> Drugs </span> <span class="menu-arrow"></span></a>
                     <ul style="display: none;">
-                        <li class="{{ Request::is('/admin/drugs/create') ? 'active' : '' }}"><a href="{{ route('admin.drugs.create')}}">Add New</a></li>
+                        <li class="{{ $activePage == 'drugs' ? ' active' : '' }}"><a href="{{ route('admin.drugs.create')}}">Add New</a></li>
                         <li class="{{ Request::is('/admin/drugs/index') ? 'active' : '' }}"><a href="{{route('admin.drugs.index')}}">Look Up</a></li>
+                        
+                    </ul>
+                </li>
+
+                <li class="submenu {{ Request::is('/admin/drugCategory') ? 'active' : '' }}">
+                    <a href="#"><i class="fa fa-hospital-o"></i> <span> Drug Classification </span> <span class="menu-arrow"></span></a>
+                    <ul style="display: none;">
+                        <li class="{{ $activePage == 'drugCategory' ? ' active' : '' }} "><a href="{{ route('admin.drugCategory.index')}}">Drug Category</a></li>
+                        <li class="{{ $activePage == 'drugsss' ? ' active' : '' }}"><a href="{{route('admin.drugs.index')}}">Drug Subcategory-1</a></li>
+                        <li class="{{ Request::is('/admin/drugs/index') ? 'active' : '' }}"><a href="{{route('admin.drugs.index')}}">Drug Subcategory-2</a></li>
+
                         
                     </ul>
                 </li>
