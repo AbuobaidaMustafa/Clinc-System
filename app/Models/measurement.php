@@ -15,4 +15,5 @@ class measurement extends Model
     {
         return $this->belongsTo(drug::class);
     }
+   
 }
