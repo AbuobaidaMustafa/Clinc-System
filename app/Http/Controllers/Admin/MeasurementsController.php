@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-
 use App\Http\Controllers\Controller;
-use App\Models\drug;
+use App\Models\measurement;
 use Illuminate\Http\Request;
 
-class DrugsController extends Controller
+class MeasurementsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +15,7 @@ class DrugsController extends Controller
      */
     public function index()
     {
-        $drugs = Drug::all();
-        return view('admin.drugs.index',['drugs'=> $drugs]);
-
+        //
     }
 
     /**
@@ -28,9 +25,7 @@ class DrugsController extends Controller
      */
     public function create()
     {
-        $drugs = Drug::all();
-        return view('admin.drugs.create');
-
+        //
     }
 
     /**
@@ -41,30 +36,32 @@ class DrugsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        measurement::create([
+            'drug_id' => $request->input('drug_name'),
+            'name' => $request->input('measurment'),
+
+        ]);
+       return redirect('admin/drugs/'.$request->input('drug_name'));
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\drug  $drugs
+     * @param  \App\Models\measurement  $measurement
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(measurement $measurement)
     {
-        $drugs = Drug::find($id);
-        $measurements =  Drug::find($id)->measurements()->get();
-        
-        return view('admin.drugs.show',['drugs'=>$drugs ,'measurments'=>$measurements]);
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\drug  $drugs
+     * @param  \App\Models\measurement  $measurement
      * @return \Illuminate\Http\Response
      */
-    public function edit(drug $drugs)
+    public function edit(measurement $measurement)
     {
         //
     }
@@ -73,30 +70,27 @@ class DrugsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\drug  $drugs
+     * @param  \App\Models\measurement  $measurement
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-       $drug = Drug::find($id);
+        $measure = measurement::find($id);
        
-      $drug->name =  $request->input('name');
-      $drug->save();
-      return redirect('admin/drugs/'.$id);
-
+      $measure->name =  $request->input('measurment');
+      $measure->save();
+      return redirect('done');
 
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\drug  $drugs
+     * @param  \App\Models\measurement  $measurement
      * @return \Illuminate\Http\Response
      */
-    public function destroy(drug $drugs)
+    public function destroy(measurement $measurement)
     {
         //
     }
-    
-
 }
