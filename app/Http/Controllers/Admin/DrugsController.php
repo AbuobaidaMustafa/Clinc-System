@@ -6,6 +6,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\drug;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class DrugsController extends Controller
 {
@@ -54,7 +55,7 @@ class DrugsController extends Controller
     {
         $drugs = Drug::find($id);
         $measurements =  Drug::find($id)->measurements()->get();
-        
+
         return view('admin.drugs.show',['drugs'=>$drugs ,'measurments'=>$measurements]);
     }
 
@@ -93,9 +94,10 @@ class DrugsController extends Controller
      * @param  \App\Models\drug  $drugs
      * @return \Illuminate\Http\Response
      */
-    public function destroy(drug $drugs)
+    public function destroy($id)
     {
-        //
+        $drug = drug::destroy($id);
+      return Redirect::back();
     }
     
 
