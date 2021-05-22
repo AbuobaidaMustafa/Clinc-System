@@ -549,12 +549,9 @@ class ComposerStaticInit7316a4d76bb4d78ac7a8e9d7d8f1223e
         'App\\Models\\Role' => __DIR__ . '/../..' . '/app/Models/Role.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Models\\drug' => __DIR__ . '/../..' . '/app/Models/drug.php',
-<<<<<<< HEAD
         'App\\Models\\drugCategory' => __DIR__ . '/../..' . '/app/Models/drugCategory.php',
         'App\\Models\\drugCategory-a' => __DIR__ . '/../..' . '/app/Models/drugCategory-a.php',
-=======
         'App\\Models\\measurement' => __DIR__ . '/../..' . '/app/Models/measurement.php',
->>>>>>> 92d3c5b18e04df5266853f92d8fbd67695d0d4d1
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',

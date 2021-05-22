@@ -1,4 +1,5 @@
-@extends('Layouts.layout')
+@extends('Layouts.layout', ['activePage' => 'drugcreate', 'titlePage' => "Drug Category"])
+
 @section('content')
 
         <div class="row">

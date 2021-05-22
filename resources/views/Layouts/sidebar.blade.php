@@ -12,7 +12,7 @@
                 <li class="submenu {{ Request::is('/admin/drugs') ? 'active' : '' }}">
                     <a href="#"><i class="fa fa-hospital-o"></i> <span> Drugs </span> <span class="menu-arrow"></span></a>
                     <ul style="display: none;">
-                        <li class="{{ $activePage == 'drugs' ? ' active' : '' }}"><a href="{{ route('admin.drugs.create')}}">Add New</a></li>
+                        <li class=""><a href="{{ route('admin.drugs.create')}}">Add New</a></li>
                         <li class="{{ Request::is('/admin/drugs/index') ? 'active' : '' }}"><a href="{{route('admin.drugs.index')}}">Look Up</a></li>
                         
                     </ul>
