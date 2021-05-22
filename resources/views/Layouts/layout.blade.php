@@ -6,7 +6,7 @@
 @include('Layouts.sidebar')
 
 <div class="page-wrapper">
-
+                
 @include('Layouts.alert')
 
 <div class="content">
