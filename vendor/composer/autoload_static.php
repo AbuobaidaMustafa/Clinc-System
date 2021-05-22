@@ -549,8 +549,12 @@ class ComposerStaticInit7316a4d76bb4d78ac7a8e9d7d8f1223e
         'App\\Models\\Role' => __DIR__ . '/../..' . '/app/Models/Role.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Models\\drug' => __DIR__ . '/../..' . '/app/Models/drug.php',
+<<<<<<< HEAD
         'App\\Models\\drugCategory' => __DIR__ . '/../..' . '/app/Models/drugCategory.php',
         'App\\Models\\drugCategory-a' => __DIR__ . '/../..' . '/app/Models/drugCategory-a.php',
+=======
+        'App\\Models\\measurement' => __DIR__ . '/../..' . '/app/Models/measurement.php',
+>>>>>>> 92d3c5b18e04df5266853f92d8fbd67695d0d4d1
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
@@ -731,6 +735,7 @@ class ComposerStaticInit7316a4d76bb4d78ac7a8e9d7d8f1223e
         'DASPRiD\\Enum\\NullValue' => __DIR__ . '/..' . '/dasprid/enum/src/NullValue.php',
         'Database\\Factories\\DrugCategoryFactory' => __DIR__ . '/../..' . '/database/factories/DrugCategoryFactory.php',
         'Database\\Factories\\DrugsFactory' => __DIR__ . '/../..' . '/database/factories/DrugsFactory.php',
+        'Database\\Factories\\MeasurementFactory' => __DIR__ . '/../..' . '/database/factories/MeasurementFactory.php',
         'Database\\Factories\\RolesFactory' => __DIR__ . '/../..' . '/database/factories/RolesFactory.php',
         'Database\\Factories\\UserFactory' => __DIR__ . '/../..' . '/database/factories/UserFactory.php',
         'Database\\Seeders\\DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeders/DatabaseSeeder.php',

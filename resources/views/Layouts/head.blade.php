@@ -8,6 +8,7 @@
     <title>Preclinic - Medical & Hospital - Bootstrap 4 Admin Template</title>
     <link rel="stylesheet" type="text/css" href="{{ url('assets/css/bootstrap.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url('assets/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url('assets/css/dataTables.bootstrap4.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{ url('assets/css/select2.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url('assets/css/bootstrap-datetimepicker.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url('assets/css/style.css') }}">

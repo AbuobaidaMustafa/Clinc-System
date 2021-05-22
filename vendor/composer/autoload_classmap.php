@@ -30,8 +30,12 @@ return array(
     'App\\Models\\Role' => $baseDir . '/app/Models/Role.php',
     'App\\Models\\User' => $baseDir . '/app/Models/User.php',
     'App\\Models\\drug' => $baseDir . '/app/Models/drug.php',
+<<<<<<< HEAD
     'App\\Models\\drugCategory' => $baseDir . '/app/Models/drugCategory.php',
     'App\\Models\\drugCategory-a' => $baseDir . '/app/Models/drugCategory-a.php',
+=======
+    'App\\Models\\measurement' => $baseDir . '/app/Models/measurement.php',
+>>>>>>> 92d3c5b18e04df5266853f92d8fbd67695d0d4d1
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',
     'App\\Providers\\AuthServiceProvider' => $baseDir . '/app/Providers/AuthServiceProvider.php',
     'App\\Providers\\BroadcastServiceProvider' => $baseDir . '/app/Providers/BroadcastServiceProvider.php',
@@ -212,6 +216,7 @@ return array(
     'DASPRiD\\Enum\\NullValue' => $vendorDir . '/dasprid/enum/src/NullValue.php',
     'Database\\Factories\\DrugCategoryFactory' => $baseDir . '/database/factories/DrugCategoryFactory.php',
     'Database\\Factories\\DrugsFactory' => $baseDir . '/database/factories/DrugsFactory.php',
+    'Database\\Factories\\MeasurementFactory' => $baseDir . '/database/factories/MeasurementFactory.php',
     'Database\\Factories\\RolesFactory' => $baseDir . '/database/factories/RolesFactory.php',
     'Database\\Factories\\UserFactory' => $baseDir . '/database/factories/UserFactory.php',
     'Database\\Seeders\\DatabaseSeeder' => $baseDir . '/database/seeders/DatabaseSeeder.php',
