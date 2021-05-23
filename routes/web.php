@@ -5,6 +5,8 @@ use Admin\UserController;
 use Admin\DrugsController;
 use Admin\DrugCategoryController;
 use Admin\MeasurementsController;
+use Admin\DrugSubCategoryController;
+use Admin\DrugGroupController;
 
 
 
@@ -22,6 +24,9 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::resource('doctors', UserController::class);
     Route::resource('drugs', DrugsController::class);
     Route::resource('drugCategory', DrugCategoryController::class);
+    Route::resource('drugSubCategory', DrugSubCategoryController::class);
+    Route::resource('drugGroup', DrugGroupController::class);
+
     Route::resource('measurments', MeasurementsController::class);
 
 

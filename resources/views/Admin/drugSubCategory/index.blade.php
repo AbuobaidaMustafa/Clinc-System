@@ -1,4 +1,4 @@
-@extends('Layouts.layout', ['activePage' => 'drugCategory', 'titlePage' => "Drug Category"])
+@extends('Layouts.layout', ['activePage' => 'drugSubCategory', 'titlePage' => "Drug Category"])
 
 
 
@@ -7,10 +7,10 @@
             <div class="content">
                 <div class="row">
                     <div class="col-sm-4 col-3">
-                       <h4 class="page-title">Drugs Category</h4>
+                       <h4 class="page-title">Drugs Sub Category</h4>
                     </div>
                     <div class="col-sm-8 col-9 text-right m-b-20">
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addcat">Add Drug Category</button>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addcat">Add Drug Sub Category</button>
                     </div>
                 </div>
 <div class="row">
@@ -20,24 +20,26 @@
 								<thead>
 									<tr>
 										<th>Code</th>
-										<th>Category</th>
+										<th>Sub Category</th>
+                                        <th>Category</th>
+
                                         <th>#</th>
 										<th>#</th>
 									</tr>
 								</thead>
 								<tbody>
-                                @if(count($categorys) > 0)
-                                 @foreach($categorys as $category)
+                                @if(count($subCategorys) > 0)
+                                 @foreach($subCategorys as $category)
                                  <tr>
                                         <td>{{$category->id}}</td>
-                                        <td>{{$category->category_name}}</td>
+                                        <td>{{$category->sub_category_name}}</td>
                                         <td>  <button type="button"  class="btn btn-primary" data-toggle="modal" data-target="#a{{$category->id}}"
 
                                          onclick="a('{{$category->id}}', '{{$category->category_name}}')"
 
                                         >Edit</button></td>
                                             <td>
-                                            <form method="POST" action="drugCategory/{{ $category->id  }}">
+                                            <form method="POST" action="drugSubCategory/{{ $category->id  }}">
               @csrf
               <input type="hidden" name="_method" value="DELETE">
               <button type="submit" class="btn btn-danger btn-icon">
@@ -58,19 +60,31 @@
                                 </button>
                             </div>
                             <div class="modal-body">
-                            <form method="POST" action="drugCategory/{{$category->id}}">
+                            <form method="POST" action="drugSubCategory/{{$category->id}}">
                             @csrf
                             @method('PATCH')
+                            <div class="form-group row">
+                                            <label class="col-md-3 col-form-label">Drug Category</label>
+                                            <div class="col-md-9"><select class="select" name="e_category_id">
+                                                <option>Select</option>
+                                                @if(count($categorys) > 0)
+                                 @foreach($categorys as $cat)
+                                                <option value="{{$cat->id}}" @if( $cat->id == $category->category_code ) selected @endif>{{$cat->category_name }}</option>
+                                                @endforeach
+                                
+                                @endif
+                                            </select></div>
+                                        </div>
                                                     <div class="form-group row">
                                     <label class="col-md-3 col-form-label">Code</label>
                                     <div class="col-md-9">
-                                        <input type="text" required name ="code" id ="{{$category->id}}" class="form-control">
+                                        <input type="text" required name ="e_code" value ="{{$category->id}}" class="form-control">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-md-3 col-form-label">Category Name</label>
                                     <div class="col-md-9">
-                                        <input type="text" required name ="category" id="{{$category->category_name}}" class="form-control">
+                                        <input type="text" required name ="e_category" value="{{$category->sub_category_name}}" class="form-control">
                                     </div>
                                 </div>
                                 <div class="text-right">
@@ -101,8 +115,20 @@
                                 </button>
                             </div>
                             <div class="modal-body">
-                            <form method="post" id="editForm">
+                            <form method="post" action="drugSubCategory" id="editForm">
                             @csrf
+                            <div class="form-group row">
+                                            <label class="col-md-3 col-form-label">Drug Category</label>
+                                            <div class="col-md-9"><select class="select" name="category_id">
+                                                <option>Select</option>
+                                                @if(count($categorys) > 0)
+                                 @foreach($categorys as $category)
+                                                <option value="{{$category->id}}">{{$category->category_name}}</option>
+                                                @endforeach
+                                
+                                @endif
+                                            </select></div>
+                                        </div>
                             <div class="form-group row">
                                     <label class="col-md-3 col-form-label">Code</label>
                                     <div class="col-md-9">
@@ -112,7 +138,7 @@
                                 <div class="form-group row">
                                     <label class="col-md-3 col-form-label">Category Name</label>
                                     <div class="col-md-9">
-                                        <input type="text" name ="category" class="form-control">
+                                        <input type="text" name ="sub_category" class="form-control">
                                     </div>
                                 </div>
                                 <div class="text-right">
@@ -130,14 +156,3 @@
 
            
 @endsection
-
-<script>
-function editModal(code, category_name){
-console.log("aa");
-document.getElementById(code).value =code;
-document.getElementById(category_name).value =category_name;
-
-}
-
-   
-</script>

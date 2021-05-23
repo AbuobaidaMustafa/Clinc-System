@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDrugCategoriesTable extends Migration
+class CreateDrugSubCategoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,12 @@ class CreateDrugCategoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('drug_categories', function (Blueprint $table) {
+        Schema::create('drug_sub_categories', function (Blueprint $table) {
             $table->string('id')->primary();
+            $table->longText('sub_category_name');
+            $table->string('category_code');
 
-            $table->longText('category_name');
-            
+            $table->foreign('category_code')->references('id')->on('drug_categories');
         });
     }
 
@@ -28,6 +29,6 @@ class CreateDrugCategoriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('drug_categories');
+        Schema::dropIfExists('drug_sub_categories');
     }
 }
