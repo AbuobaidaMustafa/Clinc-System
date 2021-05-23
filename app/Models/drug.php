@@ -15,4 +15,13 @@ class drug extends Model
     {
         return $this->hasMany(measurement::class);
     }
+
+    public static function boot() {
+        parent::boot();
+
+        static::deleting(function($drug) { // before delete() method call this
+             $drug->measurements()->delete();
+             // do the rest of the cleanup...
+        });
+    }
 }

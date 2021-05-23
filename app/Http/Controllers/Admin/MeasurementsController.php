@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\measurement;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class MeasurementsController extends Controller
 {
@@ -79,7 +80,7 @@ class MeasurementsController extends Controller
        
       $measure->name =  $request->input('measurment');
       $measure->save();
-      return redirect('done');
+      return Redirect::back();
 
     }
 
@@ -89,8 +90,9 @@ class MeasurementsController extends Controller
      * @param  \App\Models\measurement  $measurement
      * @return \Illuminate\Http\Response
      */
-    public function destroy(measurement $measurement)
+    public function destroy($id)
     {
-        //
-    }
+      $measure = measurement::destroy($id);
+      return Redirect::back();
+        }
 }

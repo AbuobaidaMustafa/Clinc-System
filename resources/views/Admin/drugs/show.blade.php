@@ -61,13 +61,32 @@
                                 <td>{{$i}}</td>
                                 <td>{{$measurment->name}}</td>
                                 <td><a href="#" class="btn btn-primary" data-toggle="modal" data-target="#m{{$measurment->id}}" data-whatever="@m{{$measurment->id}}">Edit</a></td>
-                                <td><a href="#" class="btn btn-danger">Delete</a></td>
+                                <td><a href="#" class="btn btn-danger" data-toggle="modal" data-target="#delete_measure_{{$measurment->id}}">Delete</a></td>
 
                             </tr>
                         </tbody>
                         <?php $i++?>
+                        {{-- Deleting Modals --}}
 
-
+                        <div id="delete_measure_{{$measurment->id}}" class="modal fade delete-modal" role="dialog">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-body text-center">
+                            <img src="{{URL('assets/img/sent.png')}}" alt="" width="50" height="46">
+                            <h3>Are you sure want to delete this Measurements?</h3>
+                            <div class="m-t-20"> <a href="#" class="btn btn-white" data-dismiss="modal">Close</a>
+                                <form action="{{route('admin.measurments.destroy', $measurment->id)}}" method="POST" id="form-delete-{{$measurment->id}}">
+                                 @csrf
+                                 @method('DELETE')
+                                </form>
+                                <button type="submit" onclick="event.preventDefault;document.getElementById('form-delete-{{$measurment->id}}').submit()"  class="btn btn-danger">Delete</button>
+            
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
                         {{-- Measurments modals --}}
 <div class="modal fade" id="m{{$measurment->id}}" tabindex="-1" role="dialog" aria-labelledby="m{{$measurment->id}}" aria-hidden="true">
   <div class="modal-dialog" role="document">

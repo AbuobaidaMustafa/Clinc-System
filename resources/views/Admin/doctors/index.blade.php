@@ -34,7 +34,7 @@
                 </div>
             </div>
 
-            <div id="delete_doctor_{{$doctor->id}}" class="modal fade delete-modal" role="dialog">
+           <div id="delete_doctor_{{$doctor->id}}" class="modal fade delete-modal" role="dialog">
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
                         <div class="modal-body text-center">
