@@ -17,8 +17,20 @@ class DrugSubCategoryController extends Controller
     public function index()
     {
         $drugCategory= drugCategory::all();
-        $drugSubCategory=  drugSubCategory::all();
-        return view('admin.drugSubCategory.index',['subCategorys'=> $drugSubCategory, "categorys"=> $drugCategory]);
+        // $drugSubCategory=  drugSubCategory::all();
+        $sub_cat = drugSubCategory::with('drugCategory')->get();
+
+// HERE IS HOW TO INTERACT WITH COLLECTION FROM THE RELATIONSHIP
+/**
+        // dd($category_name[0]->drugCategory->category_name);
+        // foreach($category_name as $category){
+        //     echo $category['sub_category_name'].'<br>';
+        //     echo $category['drug_category']['category_name'].'<br>';
+
+        // }
+     */
+
+        return view('admin.drugSubCategory.index',['subCategorys'=> $sub_cat, 'categorys'=> $drugCategory]);
     }
 
     /**

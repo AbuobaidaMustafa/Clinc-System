@@ -6,21 +6,15 @@
                 <li class="{{ Request::is('/admin') ? 'active' : '' }}">
                     <a href="index-2.html"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a>
                 </li>
-                <li class="{{ Request::is('/admin/doctors') ? 'active' : '' }}" >
+                <li class="{{ $activePage == 'doctors' ? 'active' : '' }}" >
                     <a href="{{route('admin.doctors.index')}}"><i class="fa fa-user-md"></i> <span>Doctors</span></a>
                 </li>
-                <li class="submenu {{ Request::is('/admin/drugs') ? 'active' : '' }}">
-                    <a href="#"><i class="fa fa-hospital-o"></i> <span> Drugs </span> <span class="menu-arrow"></span></a>
-                    <ul style="display: none;">
-                        <li class="{{ $activePage == 'drugs' ? ' active' : '' }}"><a href="{{ route('admin.drugs.create')}}">Add New</a></li>
-                        <li class="{{ Request::is('/admin/drugs/index') ? 'active' : '' }}"><a href="{{route('admin.drugs.index')}}">Look Up</a></li>
-                        
-                    </ul>
-                </li>
+                
 
-                <li class="submenu {{ Request::is('/admin/drugCategory') ? 'active' : '' }}"   >
+                <li class="submenu"   >
                     <a href="#"><i class="fa fa-hospital-o"></i> <span> Drug Classification </span> <span class="menu-arrow"></span></a>
-                    <ul class="{{ $activePage == 'drugCategory' || $activePage == 'drugSubCategory'|| $activePage == 'drugGroup' ? ' block' : '' }} " >
+                    <ul class="{{ $activePage == 'drugs' ||$activePage == 'drugCategory' || $activePage == 'drugSubCategory'|| $activePage == 'drugGroup' ? ' block' : '' }} " >
+                        <li class="{{ $activePage == 'drugs' ? ' active' : '' }}"><a href="{{ route('admin.drugs.index')}}">Drugs Look Up</a></li>
                         <li class="{{ $activePage == 'drugCategory' ? ' active' : '' }} "><a href="{{ route('admin.drugCategory.index')}}">Category</a></li>
                         <li class="{{ $activePage == 'drugSubCategory' ? ' active' : '' }}"><a href="{{route('admin.drugSubCategory.index')}}">SubCategory</a></li>
                         <li class="{{ $activePage == 'drugGroup' ? ' active' : '' }}"><a href="{{route('admin.drugGroup.index')}}">Group</a></li>
@@ -29,7 +23,7 @@
                     </ul>
                 </li>
 
-                <li class="submenu {{ Request::is('/admin/drugCategory') ? 'active' : '' }}"   >
+                <li class="submenu"   >
                     <a href="#"><i class="fa fa-hospital-o"></i> <span>Diseases</span> <span class="menu-arrow"></span></a>
                     <ul class="{{ $activePage == 'diseasCategory' || $activePage == 'diseasSubCategory' || $activePage == 'diseases' ? ' block' : '' }} " >
                         <li class="{{ $activePage == 'diseasCategory' ? ' active' : '' }} "><a href="{{ route('admin.diseasCategory.index')}}">Category</a></li>

@@ -18,7 +18,7 @@ class CreateDrugSubCategoriesTable extends Migration
             $table->longText('sub_category_name');
             $table->string('category_code');
 
-            $table->foreign('category_code')->references('id')->on('drug_categories');
+            $table->foreign('category_code')->references('id')->on('drug_categories')->onDelete('cascade');
         });
     }
 

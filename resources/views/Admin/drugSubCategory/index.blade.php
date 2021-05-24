@@ -33,6 +33,7 @@
                                  <tr>
                                         <td>{{$category->id}}</td>
                                         <td>{{$category->sub_category_name}}</td>
+                                        <td>{{$category->drugCategory->category_name}}</td>
                                         <td>  <button type="button"  class="btn btn-primary" data-toggle="modal" data-target="#a{{$category->id}}"
 
                                          onclick="a('{{$category->id}}', '{{$category->category_name}}')"
