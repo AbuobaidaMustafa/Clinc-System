@@ -28,6 +28,17 @@
                         
                     </ul>
                 </li>
+
+                <li class="submenu {{ Request::is('/admin/drugCategory') ? 'active' : '' }}"   >
+                    <a href="#"><i class="fa fa-hospital-o"></i> <span>Diseases</span> <span class="menu-arrow"></span></a>
+                    <ul class="{{ $activePage == 'diseasCategory' || $activePage == 'diseasSubCategory' || $activePage == 'diseases' ? ' block' : '' }} " >
+                        <li class="{{ $activePage == 'diseasCategory' ? ' active' : '' }} "><a href="{{ route('admin.diseasCategory.index')}}">Category</a></li>
+                        <li class="{{ $activePage == 'diseasSubCategory' ? ' active' : '' }}"><a href="{{route('admin.diseasSubCategory.index')}}">SubCategory</a></li>
+                        <li class="{{ $activePage == 'diseases' ? ' active' : '' }}"><a href="{{route('admin.diseas.index')}}">Diseases</a></li>
+
+                        
+                    </ul>
+                </li>
                 
                 {{-- <li>
                     <a href="patients.html"><i class="fa fa-wheelchair"></i> <span>Patients</span></a>

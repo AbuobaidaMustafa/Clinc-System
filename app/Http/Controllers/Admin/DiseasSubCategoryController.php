@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\drugSubCategory;
-use App\Models\drugCategory;
+use App\Models\diseasSubCategory;
+use App\Models\diseasCategory;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class DrugSubCategoryController extends Controller
+class DiseasSubCategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +16,10 @@ class DrugSubCategoryController extends Controller
      */
     public function index()
     {
-        $drugCategory= drugCategory::all();
-        $drugSubCategory=  drugSubCategory::all();
-        return view('admin.drugSubCategory.index',['subCategorys'=> $drugSubCategory, "categorys"=> $drugCategory]);
+        $diseasCategory= diseasCategory::all();
+        $diseasSubCategory=  diseasSubCategory::all();
+        return view('admin.diseasSubCategory.index',['subCategorys'=> $diseasSubCategory, "categorys"=> $diseasCategory]);
+  
     }
 
     /**
@@ -39,21 +40,21 @@ class DrugSubCategoryController extends Controller
      */
     public function store(Request $request)
     {
-        $category = new drugSubCategory();
+        $category = new diseasSubCategory();
         $category->id =$request->code;
         $category->sub_category_name =$request->sub_category;
         $category->category_code =$request->category_id;  
         $category->save();
-        return redirect("admin/drugSubCategory")->with('success', 'Sub Category   '. $category->sub_category_name .'   Created Sucessfully');
-    }
+        return redirect("admin/diseasSubCategory")->with('success', 'Diseas SubCategory   '. $category->sub_category_name .'   Created Sucessfully');
+        }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\drugSubCategory  $drugSubCategory
+     * @param  \App\Models\diseasSubCategory  $diseasSubCategory
      * @return \Illuminate\Http\Response
      */
-    public function show(drugSubCategory $drugSubCategory)
+    public function show(diseasSubCategory $diseasSubCategory)
     {
         //
     }
@@ -61,10 +62,10 @@ class DrugSubCategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\drugSubCategory  $drugSubCategory
+     * @param  \App\Models\diseasSubCategory  $diseasSubCategory
      * @return \Illuminate\Http\Response
      */
-    public function edit(drugSubCategory $drugSubCategory)
+    public function edit(diseasSubCategory $diseasSubCategory)
     {
         //
     }
@@ -73,31 +74,33 @@ class DrugSubCategoryController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\drugSubCategory  $drugSubCategory
+     * @param  \App\Models\diseasSubCategory  $diseasSubCategory
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, drugSubCategory $drugSubCategory)
+    public function update(Request $request, diseasSubCategory $diseasSubCategory)
     {
-        $category= drugSubCategory::find($drugSubCategory->id);
+        $category= diseasSubCategory::find($diseasSubCategory->id);
    
         $category->id =$request->e_code;
         $category->sub_category_name =$request->e_category;
         $category->category_code =$request->e_category_id;  
         $category->save();
-        return redirect("admin/drugSubCategory")->with('success', 'Sub Category  '. $category->category_name .'   Updated Sucessfully');
+        return redirect("admin/diseasSubCategory")->with('success', 'Diseaas SubCategory  '. $category->category_name .'   Updated Sucessfully');
+    
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\drugSubCategory  $drugSubCategory
+     * @param  \App\Models\diseasSubCategory  $diseasSubCategory
      * @return \Illuminate\Http\Response
      */
-    public function destroy(drugSubCategory $drugSubCategory)
+    public function destroy(diseasSubCategory $diseasSubCategory)
     {
-        $category = drugSubCategory::find($drugSubCategory->id);
+        $category = diseasSubCategory::find($diseasSubCategory->id);
         $name = $category->sub_category_name;
         $category->delete();
-       return redirect('/admin/drugSubCategory')->with('success', 'Sub Category  '. $name .'  Deleted Sucessfully');
+       return redirect('/admin/diseasSubCategory')->with('success', 'Diseaas SubCategory  '. $name .'  Deleted Sucessfully');
+    
     }
 }

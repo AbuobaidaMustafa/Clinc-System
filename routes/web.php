@@ -7,6 +7,10 @@ use Admin\DrugCategoryController;
 use Admin\MeasurementsController;
 use Admin\DrugSubCategoryController;
 use Admin\DrugGroupController;
+use Admin\DiseasCategoryController;
+use Admin\DiseasSubCategoryController;
+use Admin\DiseasController;
+
 
 
 
@@ -28,6 +32,9 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::resource('drugGroup', DrugGroupController::class);
 
     Route::resource('measurments', MeasurementsController::class);
+    Route::resource('diseasCategory', DiseasCategoryController::class);
+    Route::resource('diseasSubCategory', DiseasSubCategoryController::class);
+    Route::resource('diseas', DiseasController::class);
 
 
 });
